@@ -7,7 +7,9 @@ pipeline {
      // YOUR_DOCKERHUB_USERNAME (it doesn't matter if you don't have one)
 
      SERVICE_NAME = "fleetman-api-gateway"
-     REPOSITORY_TAG="$({DOCKERHUB_USERNAME}" | tr '[:upper:]' '[:lower:]')/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
+     DOCKERHUB_USERNAME="${DOCKERHUB_USERNAME}"
+     DOCKERHUB_USERNAME_LOWER=$(echo "${DOCKERHUB_USERNAME}" | tr '[:upper:]' '[:lower:]')
+    REPOSITORY_TAG="${DOCKERHUB_USERNAME_LOWER}/${ORGANIZATION_NAME}-${SERVICE_NAME}:${BUILD_ID}"
    }
 
    stages {

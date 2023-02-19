@@ -19,7 +19,7 @@ pipeline {
       }
       stage('Build') {
          steps {
-            bat 'start /B mvn clean package'
+            bat 'start /B mvn --batch-mode clean package'
          }
       }
 
